@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './services/login.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -15,5 +16,9 @@ export class AppComponent {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   login: boolean;
-  constructor() {this.login = true;}
+  constructor(private loginService: LoginService) {this.loginService.isLoggedIn().subscribe(result => {
+    if(result != null){
+      this.login = result;
+    }
+  })}
 }
