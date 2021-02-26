@@ -1,0 +1,7 @@
+{
+  "name": "stockLab",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
