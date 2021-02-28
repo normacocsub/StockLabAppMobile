@@ -14,7 +14,16 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./stockLab/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./stockLab/register/register.module').then( m => m.RegisterPageModule)
+  },  {
+    path: 'dashboard',
+    loadChildren: () => import('./stockLab/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   }
+
+
 ];
 
 @NgModule({

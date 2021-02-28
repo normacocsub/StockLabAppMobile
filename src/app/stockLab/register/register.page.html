@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="divAzul">
+    <img style="height: 80px; margin-left: 95px; margin-top: 20px;" src="../../../assets/newspaper-outline.svg" alt="">
+  </div>
+  <div class="centrarDiv">
+    <form #formulario2="ngForm" name="form2" (ngSubmit)="submit()">
+      <ion-list>
+        <ion-item>
+          <ion-input placeholder="ID"
+                     type="number"
+                     name="id"
+                     maxlength="11"
+                     [(ngModel)]="register.id"
+                     required
+                     ></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario2.valid && formulario2.touched && register.id == nan">
+            <small class="error-message">ID is required</small>
+          </ng-container>
+        </div>
+  
+        <ion-item>
+          <ion-input placeholder="Name"
+                     type="text"
+                     name="name"
+                     [(ngModel)]="register.name"
+                     required
+          ></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario2.valid && formulario2.touched && register.name == ''">
+            <small class="error-message">Name is required</small>
+          </ng-container>
+        </div>
+  
+        <ion-item>
+          <ion-input placeholder="Last name"
+                     type="text"
+                     name="lastname"
+                     [(ngModel)]="register.lastname"
+                     required            
+          ></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario2.valid && formulario2.touched && register.lastname == ''">
+            <small class="error-message">Last name is required</small>
+          </ng-container>
+        </div>
+  
+        <!-- <ion-item>
+          <ion-select placeholder="Gender" name="gender" [(ngModel)]="register.gender" required>
+            <ion-select-option>MALE</ion-select-option>
+            <ion-select-option>FEMALE</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario.valid && formulario.touched">
+            <small class="error-message">Gender is required</small>
+          </ng-container>
+        </div> -->
+  
+        <ion-item>
+          <ion-input placeholder="Age"
+                     type="number"
+                     name="age"
+                     maxlength="2"
+                     [(ngModel)]="register.age"
+                     required></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario2.valid && formulario2.touched && register.age == nan">
+            <small class="error-message">Age is required</small>
+          </ng-container>
+        </div>
+  
+        <ion-item>
+          <ion-input placeholder="E-mail"
+                     name="email"
+                     [(ngModel)]="register.email"
+                     pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                     required></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario2.valid && formulario2.touched && register.email == ''">
+            <small class="error-message">Email is invalid</small>
+          </ng-container>
+        </div>
+  
+        <ion-item>
+          <ion-input name="password" 
+                     type="password"
+                     maxlength="30"
+                     placeholder="Password"
+                     required
+                     [(ngModel)]="register.password"></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngIf="!formulario2.valid && formulario2.touched && register.password == ''">
+            <small class="error-message">password is required</small>
+          </ng-container>
+        </div>
+  
+        <div style="margin-left: 20px;">
+          <ion-button [disabled]="!formulario2.valid" type="submit" color="success" expand="block" fill="outline"
+            class="buttonLogin">Register</ion-button>
+          <div style="margin-left: 2px;">
+            <ion-label style="color: rgb(151, 151, 151); text-align: center;">--------------------or-----------------</ion-label>
+          </div>
+          <ion-button color="primary" (click)="login()" expand="block" fill="outline">Login</ion-button>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

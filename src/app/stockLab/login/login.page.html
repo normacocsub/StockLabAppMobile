@@ -6,7 +6,55 @@
     <ion-title>Stock Lab</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  
+  <div class="divAzul">
+  </div>
+  <ion-card class="ionCard">
+    <ion-card-header>
+      <ion-card-title class="cardTitle">Login</ion-card-title>
+    </ion-card-header>
+    <div class="centrarDiv">
+      <img src="../../../assets/person-outline.svg" class="img" alt="">
+      <form #formulario="ngForm" name="form" (ngSubmit)="submit()">
+        
+          <ion-item>
+            <ion-input name="email"
+                       type="email"
+                       [(ngModel)]="usuario.email"
+                       pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                       placeholder="Email"
+                       required></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngIf="!formulario.valid && formulario.touched && usuario.email == ''">
+              <small class="error-message">Email is invalid</small>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-input name="password" 
+                       type="password"
+                       placeholder="Password"
+                       required
+                       [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngIf="!formulario.valid && formulario.touched && usuario.password == ''">
+              <small class="error-message">password is required</small>
+            </ng-container>
+          </div>
+          
+
+          <ion-button [disabled]="!formulario.valid" type="submit" color="success" expand="block" fill="outline"
+            class="buttonLogin">Login</ion-button>
+
+          <ion-label style="color: rgb(151, 151, 151); margin-left: 115px;">or</ion-label>
+
+          
+          
+        </form>
+        <ion-button color="primary" (click)="register()" expand="block" fill="outline" class="buttonRegister">Register</ion-button>
+      <hr>
+    </div>
+  </ion-card>
 </ion-content>
