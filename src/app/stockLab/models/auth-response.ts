@@ -7,7 +7,8 @@ export interface AuthResponse {
         tipo: string,
         estado: string,
         idPersona: string,
-        token: string,
-        expires_in: number
+        
     }
+        token: string,
+        tokenExpire: number
 }

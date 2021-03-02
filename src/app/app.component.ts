@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 @Component({
   selector: 'app-root',
@@ -16,9 +17,13 @@ export class AppComponent {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   login: boolean;
-  constructor(private loginService: LoginService) {this.loginService.isLoggedIn().subscribe(result => {
+  constructor(private router: Router,private loginService: LoginService) {this.loginService.isLoggedIn().subscribe(result => {
+    
     if(result != null){
       this.login = result;
+      if(this.login){
+        this.router.navigateByUrl('/dashboard')
+      }
     }
   })}
 }
